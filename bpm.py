@@ -5,18 +5,20 @@ from random import randrange
 x = randrange(10, 18)
 print(f"pitch/10 is {x} \n")
 
-
+musics = [["title", "bpm", "artist"]]
 
 with open("musics.csv") as file:
-    reader = csv.reader(file)
-    for title, bpm in reader:
+    reader = csv.DictReader(file)
+    for title, bpm, artist in reader:
         y = int(bpm)
-        z = y / 10
+        z = float(y / 10)
         # musics.append({"song": song, "bpm": y})
-        m = x - z
+        m = float(x - z)
         # musics.append({"song": song, "gap": m})
-        n = m ** 2
-        if n < 0.16:
+        n = float(m ** 2)
+        if n < 0.25:
+            musics.append
+            
             class Music:
                 def __init__(self, title2, bpm2):
                     self.title2 = title2
@@ -28,16 +30,15 @@ with open("musics.csv") as file:
                 @classmethod
                 def get(cls):
                     title2 = title
-                    bpm2 = bpm
+                    bpm2 = y
                     return cls(title2, bpm2)
                 
             def main():
                 music = Music.get()
-                print (music)
+                print(music)
 
             if __name__ == "__main__":
                 main()
-
 
 
 
