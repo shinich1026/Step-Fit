@@ -1,8 +1,10 @@
 #include <iostream>
-
+#include <map>
 #include <algorithm>
 #include <vector>
 using namespace std;
+
+
 
 
 int main(){
@@ -17,12 +19,21 @@ int main(){
         {118, "We Are Confidense Men"}
     };
 
+    int pitch;
+    cout << "What is the pitch: ";
+    cin >> pitch;
+
+
 
     for(auto i: songBpm){
-        cout << i.second << ": " << i.first <<endl;
+        int gap;
+        gap = pitch - i.first;
+        int gapSquare;
+        gapSquare = gap * gap;
+        if(gapSquare < 16){
+            cout << i.second << ": " << i.first <<endl;
+        }
     }
-
-
 
     return 0;
 
